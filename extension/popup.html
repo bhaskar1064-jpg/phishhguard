@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishGuard Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-group">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      </div>
+      <span class="logo-title">PhishGuard</span>
+    </div>
+    <span class="status-shield" id="shield-active">Shield Active</span>
+  </header>
+
+  <!-- Main Container -->
+  <main class="content">
+    
+    <!-- Active Tab Diagnosis -->
+    <div class="section active-tab-section">
+      <div class="section-title">Active Tab Security</div>
+      <div class="active-tab-card">
+        <div class="tab-url-text" id="active-tab-url">Loading active tab URL...</div>
+        <div class="tab-verdict-banner" id="active-tab-verdict">
+          <span class="spinner inline-spinner" id="active-tab-spinner"></span>
+          Running diagnostics...
+        </div>
+      </div>
+    </div>
+
+    <!-- Manual Checker -->
+    <div class="section">
+      <div class="section-title">Scan Custom URL</div>
+      <form id="scan-form" class="scan-form">
+        <input type="text" id="scan-input" class="scan-input" placeholder="Paste link to check here...">
+        <button type="submit" id="scan-btn" class="scan-btn">Scan</button>
+      </form>
+    </div>
+
+    <!-- Results Display -->
+    <div id="result-box" class="result-box hidden">
+      <div class="verdict-header">
+        <span class="badge" id="result-badge">SAFE</span>
+        <span class="verdict-reason" id="result-reason">Verified Brand Domain</span>
+      </div>
+      
+      <div class="indicators-box hidden" id="indicators-box">
+        <div class="box-subtitle">Threat Indicators:</div>
+        <ul class="indicators-list" id="indicators-list"></ul>
+      </div>
+
+      <!-- AI explanations -->
+      <div class="ai-explain-box hidden" id="ai-explain-box">
+        <div class="ai-header-tag">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"/></svg>
+          PhishGuard AI Explanatory
+        </div>
+        <div class="ai-content-loader" id="ai-loader">
+          <span class="spinner inline-spinner"></span> Generating explanation...
+        </div>
+        <div class="ai-content-body hidden" id="ai-body">
+          <div class="ai-explain-section">
+            <div class="ai-explain-label">Why:</div>
+            <ul id="ai-why" class="ai-explain-list"></ul>
+          </div>
+          <div class="ai-explain-section">
+            <div class="ai-explain-label">How:</div>
+            <p id="ai-how" class="ai-explain-paragraph"></p>
+          </div>
+          <div class="ai-explain-section">
+            <div class="ai-explain-label label-danger">Consequences:</div>
+            <ul id="ai-what" class="ai-explain-list list-danger"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Actions -->
+  <footer class="footer">
+    <button id="dashboard-btn" class="footer-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      Open Console
+    </button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
