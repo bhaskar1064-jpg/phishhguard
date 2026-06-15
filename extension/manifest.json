@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "PhishGuard Shield",
+  "version": "1.0.0",
+  "description": "Active real-time phishing prevention, typo-squatting detection, and AI explanation overlays.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
